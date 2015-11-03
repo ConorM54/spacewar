@@ -5,6 +5,8 @@ class Ship
   float x, y;
   float w;
   float halfW;
+  float red=0;
+  float green=0;
  
   // Constructor!!
   // HAS NO RETURN TYPE
@@ -23,19 +25,32 @@ class Ship
     {
       if (key == 'w')
       {
+        
         y --;
+        if(green<255){
+          green++;
+        }
       }
       if (key == 's')
       {
         y ++;
+        if(green>0){
+          green--;
+        }
       }
       if (key == 'a')
       {
         x --;
+        if(red<255){
+          red++;
+        }
       }
       if (key == 'd')
       {
         x ++;
+        if(red>0){
+          red--;
+        }
       }
       
     }
@@ -43,7 +58,7 @@ class Ship
   
   void render()
   {
-    stroke(255);
+    stroke(red, green, 255);
     line(x - halfW, y + halfW, x, y - halfW);
     line(x, y - halfW, x + halfW, y + halfW);
     line(x + halfW, y + halfW, x, y);
